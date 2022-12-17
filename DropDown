@@ -1,0 +1,27 @@
+package bd.com.Automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+public class AutomationExam2 extends BaseDriver{
+	
+	@Test(priority = 0)
+	public void openUrl() throws InterruptedException {
+		
+		driver.get("https://itera-qa.azurewebsites.net/home/automation");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+	}
+	
+	@Test(priority = 1)
+	public void DropDown() throws InterruptedException {
+		WebElement selectOption = driver.findElement(By.xpath("//select[@class='custom-select']"));
+		
+		Select select = new Select(selectOption);
+		select.selectByIndex(1);
+		Thread.sleep(3000);
+	}
+
+}
